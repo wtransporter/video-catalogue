@@ -1,10 +1,10 @@
 <div class="mt-8">
-    <a href="#">
-        <img src="/images/posters/Bloodshot.jpg" alt="Bloodshot"
+    <a href="{{ route('article.show', $item->slug) }}">
+        <img src="/images/posters/{{ $item->image_path }}" alt="{{ $item->title }}"
             class="hover:opacity-75 transition ease-in-out duration-150">
     </a>
     <div class="mt-2">
-        <a href="#" class="text-lg mt-2 hover:text-gray-300">Bloodshot</a>
+        <a href="{{ route('article.show', $item->slug) }}" class="text-lg mt-2 hover:text-gray-300">{{ $item->title }}</a>
         <div class="flex items-center text-sm mt-1 text-gray-400">
             <span>
                 <svg class="w-3 fill-current text-orange-500" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +15,6 @@
             <span class="mx-2">|</span>
             <span>Mar 13 2020</span>
         </div>
-        <div class="text-gray-400 text-sm">Action, Horor, SF</div>
+        <div class="text-gray-400 text-sm">{{ ucfirst($item->type) }}</div>
     </div>
 </div>

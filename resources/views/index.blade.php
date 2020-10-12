@@ -8,9 +8,9 @@
                 Popular movies
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                @for ($i = 0; $i < 10; $i++)
-                    <x-video-card />
-                @endfor
+                @foreach ($articles as $article)
+                    <x-video-card :article="$article"/>
+                @endforeach
             </div>
         </div><!-- End Popular movies -->
 
@@ -19,9 +19,9 @@
                 Now playing
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                @for ($i = 0; $i < 10; $i++)
-                    <x-video-card />
-                @endfor
+                @foreach ($text as $article)
+                    <x-video-card :article="$article"/>
+                @endforeach
             </div>
         </div><!-- End now playing -->
     </div>

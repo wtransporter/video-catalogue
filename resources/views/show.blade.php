@@ -4,10 +4,10 @@
 
     <div class="movie-info border-b border-gray-800">
         <div class="container flex flex-col md:flex-row items-center mx-auto px-4 py-16">
-            <img class="w-64 md:w-96" src="/images/posters/Bloodshot.jpg" alt="Bloodshot">
+            <img class="w-64 md:w-96" src="/images/posters/{{ $article->image_path }}" alt="Bloodshot">
             <div class="md:ml-24">
                 <h2 class="text-4xl font-semibold pt-10">
-                    Bloodshot <span class="font-normal">(2020)</span>
+                    {{ $article->title }}
                 </h2>
                 <div class="flex flex-wrap items-center text-sm text-gray-400">
                     <span>
@@ -23,11 +23,7 @@
                 </div>
 
                 <p class="text-gray-300 mt-8">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere, 
-                    tortor eget consectetur varius, sem ante placerat ex, eu interdum nisl magna 
-                    non odio. Sed feugiat feugiat aliquet. Vestibulum congue, est sit amet tincidunt
-                     congue, nulla urna convallis nisi, ut mattis odio lacus at ligula.
-                     Morbi eleifend, lacus tincidunt bibendum.
+                    {{ $article->description }}
                 </p>
 
                 <div class="mt-8">
@@ -47,14 +43,18 @@
                 </div>
 
                 <div class="mt-8">
-                    <button class="flex items-center bg-orange-500 text-gray-900
-                        rounded font-semibold px-3 py-2 hover:bg-orange-600
-                        transition ease-in-out duration-150">
-                        <svg class="w-6 fill-current" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                        </svg>
-                        <span class="ml-2">Play trailer</span>
-                    </button>
+                    <a href="/video/{{ $article->file_path }}" type="iframe"
+                    data-mediabox="1" data-mediabox-width="640" data-mediabox-height="480"
+                    >
+                        <button class="flex items-center focus:outline-none bg-orange-500 text-gray-900
+                            rounded font-semibold px-3 py-2 hover:bg-orange-600
+                            transition ease-in-out duration-150">
+                            <svg class="w-6 fill-current" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                            <span class="ml-2">Play video</span>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -122,3 +122,4 @@
     </div> <!-- End movie cast -->
     
 @endsection
+

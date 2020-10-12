@@ -15,8 +15,14 @@ class ArticlesController extends Controller
     public function index()
     {
         return view('index', [
-            'articles' => Articles::all()
+            'articles' => Article::type('video')->take(10)->get(),
+            'text' => Article::type('text')->take(10)->get()
         ]);
+    }
+
+    public function video($file)
+    {
+        return view('video', ['file' => $file]);
     }
 
     /**

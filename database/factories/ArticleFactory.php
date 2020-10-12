@@ -15,7 +15,7 @@ $factory->define(Article::class, function (Faker $faker) {
     return [
         'user_id' => factory(User::class),
         'title' => $title,
-        'description' => $faker->paragraph(),
+        'description' => $faker->paragraph(10),
         'file_path' => $faker->sentence,
         'image_path' => $faker->sentence,
         'type' => $type[rand(0,1)],
