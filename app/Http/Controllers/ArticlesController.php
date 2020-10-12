@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ArticleStoreFormRequest;
 
 class ArticlesController extends Controller
 {
@@ -15,8 +18,8 @@ class ArticlesController extends Controller
     public function index()
     {
         return view('index', [
-            'articles' => Article::type('video')->take(10)->get(),
-            'text' => Article::type('text')->take(10)->get()
+            'articles' => Article::type('video')->take(10)->latest()->get(),
+            'text' => Article::type('text')->take(10)->latest()->get()
         ]);
     }
 
@@ -38,12 +41,22 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ArticleStoreFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleStoreFormRequest $request)
     {
-        //
+        $article = Article::create([
+            'user_id' => 2,
+            'title' =>  $request->input('title'),
+            'description' =>  $request->input('description'),
+            'file_path' => $request->file('file_path')->getClientOriginalName(),
+            'image_path' => $request->file('image_path')->getClientOriginalName(),
+            'slug' =>  Str::slug(strtolower($request->input('title')), '-'),
+            'type' => $request->input('type')
+        ]);
+
+        return redirect()->back()->with('status', 'Article added successfully.');
     }
 
     /**

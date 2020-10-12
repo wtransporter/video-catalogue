@@ -1,8 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container flex flex-col md:flex-row justify-center mx-auto px-4 py-16"">
-		<form class="w-full max-w-lg" action="" method="POST">
+	@if (Session::has('status'))
+		<div class="container flex flex-col md:flex-row w-1/3 justify-center mx-auto px-2 py-2">
+			<p class="w-full h-full py-2 px-2 border-1 border-green-700 text-green-200 bg-green-500 rounded italic">{{ Session::get('status') }}</p>
+		</div>
+	@endif
+	<div class="container flex flex-col md:flex-row justify-center mx-auto px-4 py-4">
+		<form class="w-full max-w-lg" action="/articles" method="POST" enctype="multipart/form-data">
 			@csrf
 			<div class="flex flex-wrap -mx-3 mb-6">
 				<div class="w-full px-3 mb-6 md:mb-0">
@@ -20,7 +25,7 @@
 						Description
 					</label>
 					<textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-						id="description" name="description" type="text" placeholder="Description" required rows="5"></textarea>
+						id="description" name="description" type="text" placeholder="Description" rows="5"></textarea>
 					@if ($errors->has('description'))
 						<p class="text-red-500 text-xs italic">{{ $errors->first('description') }}</p>
 					@endif
@@ -32,8 +37,8 @@
 						<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="file_path">
 							File path
 						</label>
-						<input class="appearance-none block bg-orange-500 mt-2 rounded px-1 py-1
-						text-gray-900 focus:outline-none hover:bg-orange-600 cursor-pointer" type="file" name="file_path" id="file_path">
+						<input type="file" name="file_path" id="file_path" class="appearance-none block bg-orange-500 mt-2 rounded px-1 py-1
+						text-gray-900 focus:outline-none hover:bg-orange-600 cursor-pointer">
 					</div>
 					@if ($errors->has('path'))
 						<p class="text-red-500 text-xs italic">{{ $errors->first('path') }}</p>
