@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container flex flex-col md:flex-row justify-center mx-auto px-4 py-16"">
-		<form class="w-full max-w-lg">
+		<form class="w-full max-w-lg" action="" method="POST">
+			@csrf
 			<div class="flex flex-wrap -mx-3 mb-6">
 				<div class="w-full px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="title">

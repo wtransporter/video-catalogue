@@ -23,10 +23,10 @@
                         </text>
                     </svg>
                     <li class="md:ml-10 mt-2 md:mt-0">
-                        <a href="#">TV Show</a>
+                        <a href="{{ route('articles') }}">Movies</a>
                     </li>
                     <li class="md:ml-16 mt-2 md:mt-0">
-                        <a href="#">Movies</a>
+                        <a href="#">TV Shows</a>
                     </li>
                     <li class="md:ml-16 mt-2 md:mt-0">
                         <a href="#">Actors</a>
