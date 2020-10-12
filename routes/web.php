@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index');
 Route::view('show', 'show');
+Route::view('create', 'create');
 
-// Auth::routes();
+Auth::routes();
 
 

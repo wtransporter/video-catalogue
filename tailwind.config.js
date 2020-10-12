@@ -6,9 +6,14 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
-		width: {
-			'96': '24rem',
-		}
+      width: {
+        '96': '24rem',
+      },
+      borderWidth: {
+        '40': '40px',
+        '60': '60px',
+        '98': '98px',
+      },
     },
   },
   variants: {},

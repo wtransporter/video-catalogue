@@ -1899,6 +1899,67 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isOpen: false
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    var handleEscape = function handleEscape(e) {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        _this.isOpen = false;
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    this.$once('hook:beforeDestroy', function () {
+      document.removeEventListener('keydown', handleEscape);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -37499,6 +37560,143 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "relative" }, [
+    _c(
+      "button",
+      {
+        staticClass:
+          "relative z-10 block h-8 w-8 rounded-full overflow-hidden border-2 border-gray-600\n        focus:outline-none focus:border-white",
+        on: {
+          click: function($event) {
+            _vm.isOpen = !_vm.isOpen
+          }
+        }
+      },
+      [
+        _c(
+          "svg",
+          {
+            staticClass: "h-full w-full object-cover",
+            attrs: {
+              viewBox: "0 0 16 16",
+              fill: "currentColor",
+              xmlns: "http://www.w3.org/2000/svg"
+            }
+          },
+          [
+            _c("path", {
+              attrs: {
+                d:
+                  "M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d: "M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+              }
+            }),
+            _vm._v(" "),
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"
+              }
+            })
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _vm.isOpen
+      ? _c("button", {
+          staticClass:
+            "fixed inset-0 h-full w-full bg-gray-900 opacity-25 cursor-default",
+          attrs: { tabindex: "-1" },
+          on: {
+            click: function($event) {
+              _vm.isOpen = false
+            }
+          }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.isOpen
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl"
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "block px-4 py-2 text-gray-800 hover:bg-gray-300",
+                attrs: { href: "#" }
+              },
+              [_vm._v("Profile")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "block px-4 py-2 text-gray-800 hover:bg-gray-300",
+                attrs: { href: "#" }
+              },
+              [_vm._v("Settings")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "block px-4 py-2 text-gray-800 hover:bg-gray-300",
+                attrs: {
+                  href: "/logout",
+                  onclick:
+                    "event.preventDefault();\n                            document.getElementById('logout-form').submit();"
+                }
+              },
+              [_vm._v("\n            Logout\n        ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "hidden",
+                attrs: { id: "logout-form", action: "/logout", method: "POST" }
+              },
+              [_vm._v("\n            @csrf\n        ")]
+            )
+          ]
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -49745,6 +49943,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('account-dropdown', __webpack_require__(/*! ./components/AccountDropdown.vue */ "./resources/js/components/AccountDropdown.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49799,6 +49998,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/AccountDropdown.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/AccountDropdown.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccountDropdown.vue?vue&type=template&id=4b30e2c3& */ "./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3&");
+/* harmony import */ var _AccountDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccountDropdown.vue?vue&type=script&lang=js& */ "./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccountDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccountDropdown.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AccountDropdown.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AccountDropdown.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDropdown_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AccountDropdown.vue?vue&type=template&id=4b30e2c3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AccountDropdown.vue?vue&type=template&id=4b30e2c3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDropdown_vue_vue_type_template_id_4b30e2c3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
