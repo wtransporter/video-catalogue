@@ -1,6 +1,6 @@
 <div class="mt-8">
     <a href="{{ route('article.show', $item->slug) }}">
-        <img src="/images/posters/{{ $item->image_path }}" alt="{{ $item->title }}"
+        <img src="{{asset('storage/'.$item->type.'/'.$item->image) }}" alt="{{ $item->title }}"
             class="hover:opacity-75 transition ease-in-out duration-150">
     </a>
     <div class="mt-2">

@@ -51,11 +51,13 @@ class ArticlesController extends Controller
      */
     public function store(ArticleStoreFormRequest $request)
     {
-        if ($request->hasfile('file_path')) {
-            $file = $request->file('file_path')->getClientOriginalName();
+        if ($request->hasfile('video')) {
+            $file = $request->video->getClientOriginalName();
+            $request->video->storeAs($request->type, $request->video->getClientOriginalName());
         }
-        if ($request->hasfile('image_path')) {
-            $image = $request->file('image_path')->getClientOriginalName();
+        if ($request->hasfile('image')) {
+            $image = $request->image->getClientOriginalName();
+            $request->image->storeAs($request->type, $request->image->getClientOriginalName());
         }
 
 
@@ -63,8 +65,8 @@ class ArticlesController extends Controller
             'user_id' => auth()->id(),
             'title' =>  $request->input('title'),
             'description' =>  $request->input('description'),
-            'file_path' => $file ?? 'laravel.png',
-            'image_path' => $image ?? 'laravel.png',
+            'video' => $file ?? 'laravel.png',
+            'image' => $image ?? 'laravel.png',
             'slug' =>  Str::slug(strtolower($request->input('title')), '-'),
             'type' => $request->input('type')
         ]);
@@ -103,7 +105,20 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->update($request->all());
+        $attributes = $request->all();
+        
+        if ($request->hasfile('video')) {
+            $file = $request->video->getClientOriginalName();
+            $attributes['video'] = $file;
+            $request->video->storeAs($request->type, $request->video->getClientOriginalName());
+        }
+        if ($request->hasfile('image')) {
+            $image = $request->image->getClientOriginalName();
+            $attributes['image'] = $image;
+            $request->image->storeAs($request->type, $request->image->getClientOriginalName());
+        }
+
+        $article->update($attributes);
 
         return redirect()->back()->with('status', 'Article updated.');
     }

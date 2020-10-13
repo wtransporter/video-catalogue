@@ -4,7 +4,7 @@
 
     <div class="movie-info border-b border-gray-800">
         <div class="container flex flex-col md:flex-row items-center mx-auto px-4 py-16">
-            <img class="w-64 md:w-96" src="/images/posters/{{ $article->image_path }}" alt="Bloodshot">
+            <img class="w-64 md:w-96" src="{{ asset('storage/'.$article->type.'/'.$article->image) }}" alt="Bloodshot">
             <div class="md:ml-24">
                 <h2 class="text-4xl font-semibold pt-10">
                     {{ $article->title }}
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="mt-8">
-                    <a href="/video/{{ $article->file_path }}" type="iframe"
+                    <a href="{{ asset('storage/'.$article->type.'/'.$article->video) }}" type="iframe"
                     data-mediabox="1" data-mediabox-width="640" data-mediabox-height="480"
                     >
                         <button class="flex items-center focus:outline-none bg-orange-500 text-gray-900

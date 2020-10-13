@@ -26,7 +26,8 @@ class ArticleStoreFormRequest extends FormRequest
         return [
             'title' => 'required|min:5',
             'description' => 'required|min:5',
-            'file_path' => 'required',
+            'video' => 'required|file|mimetypes:video/avi,video/mpeg,video/mp4',
+            'image' => 'required|image|mimes:jpeg,jpg,png,gif|required',
             'type' => 'required'
         ];
     }

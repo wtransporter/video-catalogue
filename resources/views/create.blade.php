@@ -1,9 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
-	@if (Session::has('status'))
+	<x-flash />
+	@if ($errors->any())
 		<div class="container flex flex-col md:flex-row w-1/3 justify-center mx-auto px-2 py-2">
-			<p class="w-full h-full py-2 px-2 border-1 border-green-700 text-green-200 bg-green-500 rounded italic">{{ Session::get('status') }}</p>
+				<p class="w-full h-full py-2 px-2 border-1 border-green-700 text-green-200 bg-green-500 rounded italic">
+					@foreach ($errors->all() as $error)
+						{{ $error }}
+					@endforeach
+				</p>
 		</div>
 	@endif
 	<div class="container flex flex-col md:flex-row justify-center mx-auto px-4 py-4">
@@ -37,7 +42,7 @@
 						<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="file_path">
 							File path
 						</label>
-						<input type="file" name="file_path" id="file_path" class="appearance-none block bg-orange-500 mt-2 rounded px-1 py-1
+						<input type="file" name="video" id="video" class="appearance-none block bg-orange-500 mt-2 rounded px-1 py-1
 						text-gray-900 focus:outline-none hover:bg-orange-600 cursor-pointer">
 					</div>
 					@if ($errors->has('path'))
@@ -51,7 +56,7 @@
 						Image path
 					</label>
 					<input class="appearance-none block bg-orange-500 mt-2 rounded px-1 py-1
-						text-gray-900 focus:outline-none hover:bg-orange-600 cursor-pointer" type="file" name="image_path" id="image_path">
+						text-gray-900 focus:outline-none hover:bg-orange-600 cursor-pointer" type="file" name="image" id="image">
 				</div>
 				<div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
