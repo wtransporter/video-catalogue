@@ -20,7 +20,7 @@
             </a>
 
             <form id="logout-form" action="/logout" method="POST" class="hidden">
-                @csrf
+                <input type="hidden" name="_token" :value="csrf">
             </form>
         </div>
     </div>
@@ -30,7 +30,8 @@
 export default {
     data() {
         return {
-            isOpen: false
+            isOpen: false,
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         }
     },
     created() {

@@ -60,7 +60,7 @@ class ArticlesController extends Controller
 
 
         $article = Article::create([
-            'user_id' => 2,
+            'user_id' => auth()->id(),
             'title' =>  $request->input('title'),
             'description' =>  $request->input('description'),
             'file_path' => $file ?? 'laravel.png',
@@ -91,7 +91,7 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('edit', compact($article));
+        return view('edit', compact('article'));
     }
 
     /**

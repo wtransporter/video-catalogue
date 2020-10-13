@@ -61,9 +61,9 @@ class ArticleCreateTest extends TestCase
     }
 
     /** @test */
-    public function authorized_users_cannot_update_article()
+    public function authorized_users_can_update_article()
     {   
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
         $this->signIn();
         
         $article = factory(Article::class)->create();

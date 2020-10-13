@@ -1939,7 +1939,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      isOpen: false
+      isOpen: false,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   created: function created() {
@@ -37683,7 +37684,12 @@ var render = function() {
                 staticClass: "hidden",
                 attrs: { id: "logout-form", action: "/logout", method: "POST" }
               },
-              [_vm._v("\n            @csrf\n        ")]
+              [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
+                })
+              ]
             )
           ]
         )
