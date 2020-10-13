@@ -10,6 +10,11 @@ use App\Http\Requests\ArticleStoreFormRequest;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,12 +51,20 @@ class ArticlesController extends Controller
      */
     public function store(ArticleStoreFormRequest $request)
     {
+        if ($request->hasfile('file_path')) {
+            $file = $request->file('file_path')->getClientOriginalName();
+        }
+        if ($request->hasfile('image_path')) {
+            $image = $request->file('image_path')->getClientOriginalName();
+        }
+
+
         $article = Article::create([
             'user_id' => 2,
             'title' =>  $request->input('title'),
             'description' =>  $request->input('description'),
-            'file_path' => $request->file('file_path')->getClientOriginalName(),
-            'image_path' => $request->file('image_path')->getClientOriginalName(),
+            'file_path' => $file ?? 'laravel.png',
+            'image_path' => $image ?? 'laravel.png',
             'slug' =>  Str::slug(strtolower($request->input('title')), '-'),
             'type' => $request->input('type')
         ]);
@@ -78,7 +91,7 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('edit', compact($article));
     }
 
     /**
@@ -90,7 +103,9 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update($request->all());
+
+        return redirect()->back()->with('status', 'Article updated.');
     }
 
     /**
